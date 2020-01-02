@@ -1,0 +1,102 @@
+obj_enact_legislative_reform = {
+	type = character
+
+	allow = {
+		is_adult = yes
+		OR = {
+			trait = just
+      learning = 16
+			AND = {
+        learning = 12
+        trait = ambitious
+      }
+		}
+    NOT = {
+      trait = arbitrary
+      check_variable = {
+        which = kmnky_olf_laws_passed
+        value = 1
+      }
+    }
+    independent = yes
+    has_council = yes
+  	has_law = law_voting_power_1
+	}
+
+  abort = {
+    OR = {
+      trait = arbitrary
+      NOT = {
+        independent = yes
+      }
+      NOT = {
+        has_council = yes
+      }
+      NOT = {
+        has_law = law_voting_power_1
+      }
+    }
+  }
+
+  creation_effect = {
+    set_variable  = {
+      which = kmnky_olf_laws_passed
+      value = 0
+    }
+  }
+
+	chance = {
+		factor = 25
+
+		modifier = {
+			factor = 0.3
+			trait = content
+		}
+		modifier = {
+			factor = 5.0
+			trait = just
+		}
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 1.5
+      learning = 18
+		}
+	}
+	success = {
+    has_law = law_voting_power_1
+    conditional_tooltip = {
+    	trigger = {
+        has_ambition = obj_enact_legislative_reform
+    	}
+      custom_tooltip = {
+        text = kmnky_olf_laws_passed_passed_over_five
+        check_variable = {
+          which = kmnky_olf_laws_passed
+          value = 5
+        }
+      }
+    }
+    conditional_tooltip = {
+      trigger = {
+        NOT = {
+          has_ambition = obj_enact_legislative_reform
+        }
+      }
+      custom_tooltip = {
+        text = kmnky_olf_laws_passed_passed_over_five_pre
+      }
+    }
+
+    NOT = {
+      trait = arbitrary
+    }
+    independent = yes
+	}
+	effect = {
+    culture_techpoints = 150
+    economy_techpoints = 50
+	}
+}

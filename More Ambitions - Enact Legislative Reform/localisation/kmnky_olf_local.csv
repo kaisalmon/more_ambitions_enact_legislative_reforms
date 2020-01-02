@@ -1,0 +1,4 @@
+obj_enact_legislative_reform_title;Enact Legislative Reform;;;;;;;;;;;;;x
+obj_enact_legislative_reform_desc;[This.GetTitledFirstName] wants to enact a number of legal reforms;;;;;;;;;;;;;x
+kmnky_olf_laws_passed_passed_over_five;Has passed [This.kmnky_olf_laws_passed.GetValue]/5 laws;;;;;;;;;;;;;x
+kmnky_olf_laws_passed_passed_over_five_pre;Has passed 5 laws;;;;;;;;;;;;;x

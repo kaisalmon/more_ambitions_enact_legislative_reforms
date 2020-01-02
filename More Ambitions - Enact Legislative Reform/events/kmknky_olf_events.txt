@@ -1,0 +1,20 @@
+namespace = kmnky_more_ambitions_olf
+
+character_event = {
+	id = kmnky_more_ambitions_olf.001
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+			has_ambition = obj_enact_legislative_reform
+ 			FROM = { character = ROOT }
+	}
+
+	immediate = {
+    change_variable = {
+      which = kmnky_olf_laws_passed
+      value = 1
+    }
+  }
+}
